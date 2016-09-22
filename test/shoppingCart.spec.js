@@ -16,7 +16,6 @@ describe("Shopping Cart", () => {
     it ("Has a total of zero", () => {
       expect(shoppingCart.total).to.eql(0);
     });
-
   });
 
   describe("addItem", () => {
@@ -24,12 +23,31 @@ describe("Shopping Cart", () => {
       let shoppingCart = new ShoppingCart();
       shoppingCart.addItem('banana');
       expect(shoppingCart.basket).to.eql(['banana']);
-    })
+    });
     it ("Added one banana", () => {
       let shoppingCart = new ShoppingCart();
       let banana = new Item('banana', 60);
       shoppingCart.addItem(banana);
       expect(shoppingCart.basket).to.eql([banana]);
-    })
-  })
+    });
+  });
+
+  describe("sumTotal", () => {
+    it ("Summed total in shopping cart", () => {
+      let shoppingCart = new ShoppingCart();
+      let apple = new Item('apple', 80);
+      shoppingCart.addItem(apple);
+      shoppingCart.sumTotal();
+      expect(shoppingCart.total).to.eql(80);
+    });
+    it ("Summed total in shopping cart", () => {
+      let shoppingCart = new ShoppingCart();
+      let apple = new Item('apple', 80);
+      let banana = new Item('banana', 40);
+      shoppingCart.addItem(apple);
+      shoppingCart.addItem(banana);
+      shoppingCart.sumTotal();
+      expect(shoppingCart.total).to.eql(120);
+    });
+  });
 })
