@@ -1,7 +1,7 @@
 const expect = require("chai").expect //import chai
 const Item = require("../src/item.js") //importing the Item obj
 
-var item = new Item('banana', 60);
+let item = new Item('banana', 60);
 
 describe("item", () => {
   it ("Has a name property", () => {
